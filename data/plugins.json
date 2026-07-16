@@ -1,0 +1,131 @@
+{
+  "categories": [
+    { "id": "templates", "title": "템플릿 · 타이틀", "title_en": "Templates & Titles" },
+    { "id": "effects", "title": "효과 · 색보정", "title_en": "Effects & Color" },
+    { "id": "workflow", "title": "워크플로 · 유틸리티", "title_en": "Workflow & Utilities" },
+    { "id": "marketplace", "title": "마켓플레이스", "title_en": "Marketplace" },
+    { "id": "training", "title": "교육", "title_en": "Training" }
+  ],
+  "plugins": [
+    {
+      "id": "motionvfx",
+      "name": "MotionVFX",
+      "url": "https://www.motionvfx.com",
+      "category": "templates",
+      "pricing": "paid",
+      "desc": "mTitle, mTransition, mLUT 등 방송급 템플릿·플러그인의 대표 주자. FCP 전용 제품군이 가장 방대합니다.",
+      "desc_en": "Broadcast-grade titles, transitions and LUTs (mTitle, mTransition, mLUT). The largest FCP-native product lineup.",
+      "keywords": ["템플릿", "타이틀", "트랜지션", "LUT", "mtitle", "mtransition"]
+    },
+    {
+      "id": "fxfactory",
+      "name": "FxFactory",
+      "url": "https://fxfactory.com",
+      "category": "marketplace",
+      "pricing": "free",
+      "desc": "수백 개 서드파티 플러그인을 한 곳에서 설치·관리하는 마켓플레이스 앱. 무료 플러그인도 많습니다.",
+      "desc_en": "A marketplace app to install and manage hundreds of third-party plugins in one place. Many free plugins included.",
+      "keywords": ["마켓", "설치", "관리", "무료", "plugin manager"]
+    },
+    {
+      "id": "borisfx",
+      "name": "Boris FX",
+      "url": "https://borisfx.com",
+      "category": "effects",
+      "pricing": "paid",
+      "desc": "Continuum, Sapphire, Mocha Pro 등 헐리우드급 VFX·트래킹·리터칭 플러그인.",
+      "desc_en": "Hollywood-grade VFX, tracking and retouching plugins: Continuum, Sapphire, Mocha Pro.",
+      "keywords": ["VFX", "트래킹", "sapphire", "continuum", "mocha", "합성"]
+    },
+    {
+      "id": "coremelt",
+      "name": "CoreMelt (Maxon)",
+      "url": "https://coremelt.com",
+      "category": "effects",
+      "pricing": "paid",
+      "desc": "TrackX(트래킹), SliceX(마스킹), PaintX(리터칭), Lock & Load(손떨림 보정) — Mocha 엔진 기반 FCP 필수 도구.",
+      "desc_en": "TrackX (tracking), SliceX (masking), PaintX (retouching), Lock & Load (stabilization) — Mocha-powered FCP essentials.",
+      "keywords": ["트래킹", "마스크", "손떨림", "안정화", "trackx", "slicex", "paintx"]
+    },
+    {
+      "id": "rippletraining",
+      "name": "Ripple Training",
+      "url": "https://www.rippletraining.com",
+      "category": "training",
+      "pricing": "paid",
+      "desc": "FCP·Motion·Compressor 공식급 교육 강좌. 새 버전이 나올 때마다 가장 빠르게 강좌가 갱신됩니다.",
+      "desc_en": "In-depth training for FCP, Motion and Compressor, updated fast with every new release.",
+      "keywords": ["교육", "강좌", "튜토리얼", "배우기", "motion", "compressor"]
+    },
+    {
+      "id": "digitalheaven",
+      "name": "Digital Heaven",
+      "url": "https://www.digitalheaven.co.uk",
+      "category": "workflow",
+      "pricing": "paid",
+      "desc": "타임코드, 자막 정리 등 편집 실무에서 바로 쓰는 정교한 유틸리티 플러그인 제작사.",
+      "desc_en": "Precision utility plugins for working editors — timecode, captions and more.",
+      "keywords": ["유틸리티", "타임코드", "실무"]
+    },
+    {
+      "id": "fcpeffects",
+      "name": "FCPeffects",
+      "url": "https://fcpeffects.com",
+      "category": "effects",
+      "pricing": "paid",
+      "desc": "합리적 가격의 FCP 전용 효과·트랜지션 모음. 필요한 것만 골라 살 수 있습니다.",
+      "desc_en": "Affordable FCP-only effects and transitions, sold à la carte.",
+      "keywords": ["효과", "트랜지션", "저렴"]
+    },
+    {
+      "id": "pixelfilmstudios",
+      "name": "Pixel Film Studios",
+      "url": "https://pixelfilmstudios.com",
+      "category": "templates",
+      "pricing": "paid",
+      "desc": "방대한 FCP 전용 템플릿·이펙트 라이브러리. 장르별 테마 패키지가 강점.",
+      "desc_en": "A huge library of FCP-only templates and effects, organized by genre.",
+      "keywords": ["템플릿", "테마", "이펙트"]
+    },
+    {
+      "id": "digitalanarchy",
+      "name": "Digital Anarchy",
+      "url": "https://digitalanarchy.com",
+      "category": "effects",
+      "pricing": "paid",
+      "desc": "Flicker Free(플리커 제거), Beauty Box(피부 보정), Transcriptive 등 문제 해결형 플러그인.",
+      "desc_en": "Problem-solving plugins: Flicker Free, Beauty Box (skin retouching), Transcriptive.",
+      "keywords": ["플리커", "피부보정", "flicker", "beauty box"]
+    },
+    {
+      "id": "hawaiki",
+      "name": "Hawaiki",
+      "url": "https://fxfactory.com/vendor/hawaiki/",
+      "category": "effects",
+      "pricing": "paid",
+      "desc": "Hawaiki Keyer(크로마키), Hawaiki Color(색보정) — FCP에서 가장 평가가 좋은 키어. FxFactory로 설치.",
+      "desc_en": "Hawaiki Keyer (chroma key) and Hawaiki Color — among the best-rated keyers for FCP. Installed via FxFactory.",
+      "keywords": ["크로마키", "키잉", "그린스크린", "keyer", "색보정"]
+    },
+    {
+      "id": "commandpost",
+      "name": "CommandPost",
+      "url": "https://commandpost.io",
+      "category": "workflow",
+      "pricing": "free",
+      "desc": "FCP 자동화·단축키 확장의 끝판왕인 무료 오픈소스 앱. fcp.cafe를 만든 팀이 개발합니다.",
+      "desc_en": "Free, open-source automation and shortcut powerhouse for FCP, built by the team behind fcp.cafe.",
+      "keywords": ["자동화", "단축키", "무료", "오픈소스", "매크로"]
+    },
+    {
+      "id": "xtocc",
+      "name": "XtoCC / 7toX (Intelligent Assistance)",
+      "url": "https://intelligentassistance.com",
+      "category": "workflow",
+      "pricing": "paid",
+      "desc": "FCPXML을 Premiere Pro 등 다른 NLE와 주고받게 해 주는 변환 도구.",
+      "desc_en": "Converts FCPXML for interchange with Premiere Pro and other NLEs.",
+      "keywords": ["XML", "변환", "premiere", "호환", "roundtrip"]
+    }
+  ]
+}

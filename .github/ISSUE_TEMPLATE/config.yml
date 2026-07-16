@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 💬 커뮤니티에서 질문하기
+    url: https://fcpe.com/community.html
+    about: 버그가 아닌 사용법 질문은 카톡방/Discord에서 더 빨리 답을 받을 수 있습니다.
+  - name: ☕️ FCP Cafe 버그트래커
+    url: https://github.com/CommandPost/FCPCafe/issues
+    about: 전 세계 커뮤니티가 관리하는 알려진 버그 목록도 확인해 보세요.

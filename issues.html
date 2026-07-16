@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>알려진 이슈 — fcpe.com</title>
+<meta name="description" content="전 세계 커뮤니티에서 취합한 Final Cut Pro 알려진 버그와 해결 방법.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/config.js" defer></script>
+<script src="assets/js/i18n.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+</head>
+<body data-page="issues">
+<header class="site"><div class="bar">
+  <a class="logo" href="index.html">fcpe<span class="dot">.</span>com</a>
+  <nav class="main">
+    <a href="ask.html" data-i18n="nav.ask"></a>
+    <a href="guide.html" data-i18n="nav.guide"></a>
+    <a href="issues.html" class="on" data-i18n="nav.issues"></a>
+    <a href="plugins.html" data-i18n="nav.plugins"></a>
+    <a href="community.html" data-i18n="nav.community"></a>
+    <a href="feedback.html" data-i18n="nav.feedback"></a>
+  </nav>
+  <select id="lang" aria-label="Language"></select>
+</div></header>
+
+<main class="wrap">
+  <h1 class="page" data-i18n="issues.title" data-i18n-title="issues.title"></h1>
+  <p class="lead" data-i18n="issues.lead"></p>
+
+  <input id="issues-filter" class="filter-input" type="search" data-i18n-ph="issues.filter">
+  <div class="filters">
+    <button data-status="all" class="on" data-i18n="issues.all"></button>
+    <button data-status="open" data-i18n="issues.open"></button>
+    <button data-status="workaround" data-i18n="issues.workaround"></button>
+    <button data-status="fixed" data-i18n="issues.fixed"></button>
+  </div>
+
+  <div class="count" id="issues-count"></div>
+  <div id="issues-list"></div>
+
+  <p style="margin-top:24px"><a href="feedback.html" data-i18n="issues.report"></a></p>
+</main>
+
+<footer class="site"><div class="wrap">
+  <span data-i18n="footer.tagline"></span>
+  <span data-i18n="footer.disclaimer"></span>
+</div></footer>
+</body>
+</html>

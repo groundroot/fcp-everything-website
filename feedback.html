@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>피드백 — fcpe.com</title>
+<meta name="description" content="Final Cut Pro 버그 제보와 제안 — GitHub 이슈로 등록되고 Apple에 전달됩니다.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/config.js" defer></script>
+<script src="assets/js/i18n.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+</head>
+<body data-page="feedback">
+<header class="site"><div class="bar">
+  <a class="logo" href="index.html">fcpe<span class="dot">.</span>com</a>
+  <nav class="main">
+    <a href="ask.html" data-i18n="nav.ask"></a>
+    <a href="guide.html" data-i18n="nav.guide"></a>
+    <a href="issues.html" data-i18n="nav.issues"></a>
+    <a href="plugins.html" data-i18n="nav.plugins"></a>
+    <a href="community.html" data-i18n="nav.community"></a>
+    <a href="feedback.html" class="on" data-i18n="nav.feedback"></a>
+  </nav>
+  <select id="lang" aria-label="Language"></select>
+</div></header>
+
+<main class="wrap">
+  <h1 class="page" data-i18n="feedback.title" data-i18n-title="feedback.title"></h1>
+  <p class="lead" data-i18n="feedback.lead"></p>
+  <div class="note" data-i18n="feedback.note"></div>
+
+  <form class="feedback" id="feedback-form">
+    <label for="fb-type" data-i18n="feedback.type"></label>
+    <select id="fb-type">
+      <option value="bug" data-i18n="feedback.type.bug"></option>
+      <option value="feature" data-i18n="feedback.type.feature"></option>
+      <option value="site" data-i18n="feedback.type.site"></option>
+    </select>
+
+    <label for="fb-fcpver" data-i18n="feedback.fcpver"></label>
+    <input id="fb-fcpver" type="text" placeholder="예: 12.3">
+
+    <label for="fb-macver" data-i18n="feedback.macver"></label>
+    <input id="fb-macver" type="text" placeholder="예: macOS 26.2 / MacBook Pro M4">
+
+    <label for="fb-summary" data-i18n="feedback.summary"></label>
+    <input id="fb-summary" type="text" required>
+
+    <label for="fb-detail" data-i18n="feedback.detail"></label>
+    <textarea id="fb-detail" required></textarea>
+
+    <button class="btn" type="submit" data-i18n="feedback.submit"></button>
+    <p style="color:var(--text-soft);font-size:13.5px" data-i18n="feedback.how"></p>
+  </form>
+</main>
+
+<footer class="site"><div class="wrap">
+  <span data-i18n="footer.tagline"></span>
+  <span data-i18n="footer.disclaimer"></span>
+</div></footer>
+</body>
+</html>

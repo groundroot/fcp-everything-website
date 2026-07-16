@@ -1,0 +1,20 @@
+name: 💡 기능 제안 (Final Cut Pro 또는 fcpe.com)
+description: Final Cut Pro에 바라는 기능이나 fcpe.com 사이트 개선 아이디어를 알려 주세요.
+labels: ["enhancement"]
+body:
+  - type: dropdown
+    id: target
+    attributes:
+      label: 어디에 대한 제안인가요?
+      options:
+        - Final Cut Pro (Apple에 전달)
+        - fcpe.com 사이트
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: 제안 내용
+      description: 어떤 문제를 해결하고 싶은지, 어떻게 동작하면 좋을지 적어 주세요.
+    validations:
+      required: true

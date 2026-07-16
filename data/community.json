@@ -1,0 +1,68 @@
+{
+  "chat": [
+    {
+      "id": "kakao",
+      "emoji": "💬",
+      "name": "카카오톡 오픈채팅",
+      "name_en": "KakaoTalk Open Chat",
+      "desc": "한국 파이널컷 유저들의 실시간 문제 해결 채팅방.",
+      "desc_en": "Real-time troubleshooting chat for Korean FCP users.",
+      "url": "#",
+      "cta": "카톡방 입장",
+      "cta_en": "Join on KakaoTalk"
+    },
+    {
+      "id": "discord",
+      "emoji": "🎧",
+      "name": "Discord 서버",
+      "name_en": "Discord Server",
+      "desc": "전 세계 유저들과 화면 공유하며 실시간으로 해결.",
+      "desc_en": "Solve problems live with users worldwide, screen-share included.",
+      "url": "#",
+      "cta": "Discord 참여",
+      "cta_en": "Join Discord"
+    }
+  ],
+  "global": [
+    {
+      "id": "fcpcafe",
+      "emoji": "☕️",
+      "name": "FCP Cafe",
+      "desc": "전 세계 FCP 커뮤니티의 허브 — 버그트래커, 플러그인, 뉴스.",
+      "desc_en": "The hub of the worldwide FCP community — bug tracker, plugins, news.",
+      "url": "https://fcp.cafe"
+    },
+    {
+      "id": "fcpcafe-bugs",
+      "emoji": "🐞",
+      "name": "FCP Cafe 버그트래커 (GitHub)",
+      "desc": "알려진 버그가 이슈로 관리되는 공개 저장소.",
+      "desc_en": "Known bugs tracked as public GitHub issues.",
+      "url": "https://github.com/CommandPost/FCPCafe/issues"
+    },
+    {
+      "id": "reddit",
+      "emoji": "👽",
+      "name": "r/finalcutpro (Reddit)",
+      "desc": "영어권 최대 FCP 커뮤니티. 질문·팁·쇼케이스.",
+      "desc_en": "The largest English-speaking FCP community. Q&A, tips, showcases.",
+      "url": "https://www.reddit.com/r/finalcutpro/"
+    },
+    {
+      "id": "apple-support",
+      "emoji": "",
+      "name": "Apple 공식 지원 & 사용 설명서",
+      "desc": "Final Cut Pro 공식 사용 설명서와 지원 문서.",
+      "desc_en": "Official Final Cut Pro user guide and support documents.",
+      "url": "https://support.apple.com/final-cut-pro"
+    },
+    {
+      "id": "apple-feedback",
+      "emoji": "📮",
+      "name": "Apple Feedback — Final Cut Pro",
+      "desc": "Apple에 직접 버그·제안을 보내는 공식 채널. 이 사이트의 피드백도 여기로 전달됩니다.",
+      "desc_en": "Apple's official channel for bug reports and suggestions. Feedback from this site is relayed here.",
+      "url": "https://www.apple.com/feedback/finalcutpro/"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "note": "전 세계 커뮤니티에서 취합한 알려진 이슈 시드 데이터입니다. fcp.cafe 버그트래커(https://github.com/CommandPost/FCPCafe/issues)를 참고해 계속 갱신하세요.",
+    "sources": [
+      "https://fcp.cafe/bugtracker/",
+      "https://github.com/CommandPost/FCPCafe/issues",
+      "https://www.reddit.com/r/finalcutpro/"
+    ]
+  },
+  "issues": [
+    {
+      "id": "export-error-render",
+      "title": "특정 프로젝트에서 내보내기가 오류로 실패함",
+      "status": "workaround",
+      "affects": "여러 버전",
+      "desc": "손상된 렌더 파일이나 특정 클립/효과 때문에 공유(내보내기)가 실패하는 사례가 꾸준히 보고됩니다.",
+      "workaround": "'파일 > 생성된 라이브러리 파일 삭제'로 렌더 파일을 지운 뒤 재시도. 계속 실패하면 타임라인을 절반씩 내보내 문제 클립을 좁히고, 해당 클립의 서드파티 효과를 꺼 보세요.",
+      "keywords": ["내보내기", "export", "공유", "실패", "오류"]
+    },
+    {
+      "id": "thirdparty-plugin-crash",
+      "title": "구버전 서드파티 플러그인으로 인한 앱 충돌(튕김)",
+      "status": "workaround",
+      "affects": "메이저 업데이트 직후",
+      "desc": "FCP 메이저 업데이트 직후 구버전 FxPlug 플러그인이 충돌·튕김을 일으키는 사례가 많습니다. fcp.cafe에서 업데이트별 호환성 정보를 정리합니다.",
+      "workaround": "플러그인을 모두 최신 버전으로 업데이트하세요. 원인 확인이 필요하면 'Motion Templates' 폴더와 플러그인을 임시로 옮겨 두고 실행해 충돌이 사라지는지 확인합니다.",
+      "keywords": ["플러그인", "충돌", "crash", "튕김", "fxplug", "업데이트"]
+    },
+    {
+      "id": "proxy-only-offline",
+      "title": "'프록시 전용' 상태에서 일부 클립이 오프라인으로 표시됨",
+      "status": "workaround",
+      "affects": "모든 버전 (동작 사양)",
+      "desc": "보기 메뉴가 '프록시 전용'일 때 프록시가 생성되지 않은 클립은 오프라인(빨간 화면)으로 표시됩니다. 버그로 오해하기 쉬운 동작입니다.",
+      "workaround": "뷰어 우상단 보기 메뉴를 '프록시 우선' 또는 '최적화/원본'으로 변경하거나, 해당 클립의 프록시를 생성하세요.",
+      "keywords": ["프록시", "오프라인", "proxy", "빨간 화면"]
+    },
+    {
+      "id": "hevc-performance",
+      "title": "HEVC/H.264 롱GOP 소스에서 재생·스크러빙 성능 저하",
+      "status": "workaround",
+      "affects": "특히 고해상도 소스",
+      "desc": "스마트폰·미러리스의 롱GOP 원본을 직접 편집하면 재생 끊김과 느린 스크러빙이 발생할 수 있습니다.",
+      "workaround": "최적화 미디어(ProRes 422) 또는 프록시를 생성해 편집하세요. Apple Silicon Mac에서도 다중 스트림·고배속 재생에는 프록시가 유리합니다.",
+      "keywords": ["HEVC", "H.264", "재생", "끊김", "성능", "스크러빙"]
+    },
+    {
+      "id": "external-drive-format",
+      "title": "exFAT/NTFS 외장 드라이브에서 라이브러리 오류",
+      "status": "workaround",
+      "affects": "모든 버전 (동작 사양)",
+      "desc": "라이브러리를 exFAT·NTFS 포맷 드라이브에 두면 저장 오류, 라이브러리 손상, 성능 저하가 발생할 수 있습니다. 라이브러리는 APFS/HFS+ 포맷을 요구합니다.",
+      "workaround": "외장 드라이브를 APFS(또는 Mac OS 확장)로 포맷해 사용하세요. Windows와 공유해야 하는 드라이브에는 라이브러리가 아닌 원본 미디어만 두세요.",
+      "keywords": ["외장", "드라이브", "exfat", "ntfs", "포맷", "라이브러리 손상"]
+    },
+    {
+      "id": "xml-thirdparty-compat",
+      "title": "FCPXML 버전 차이로 다른 앱에서 가져오기 실패",
+      "status": "workaround",
+      "affects": "여러 버전",
+      "desc": "FCP 업데이트로 FCPXML 버전이 올라가면 DaVinci Resolve 등 외부 앱의 구버전이 이를 읽지 못하는 문제가 반복적으로 보고됩니다.",
+      "workaround": "XML 내보내기 시 대상 앱이 지원하는 낮은 FCPXML 버전을 선택하거나, 외부 앱을 최신 버전으로 업데이트하세요.",
+      "keywords": ["XML", "fcpxml", "resolve", "호환", "가져오기 실패"]
+    },
+    {
+      "id": "media-import-sdcard",
+      "title": "SD카드에서 '제자리에 두기'로 가져온 미디어가 오프라인됨",
+      "status": "workaround",
+      "affects": "모든 버전 (동작 사양)",
+      "desc": "가져오기 시 '파일을 제자리에 두기'를 선택하면 SD카드를 뺐을 때 모든 클립이 오프라인이 됩니다. 초보자가 가장 자주 겪는 문제 중 하나입니다.",
+      "workaround": "카메라 카드에서 가져올 때는 항상 '라이브러리로 복사'를 선택하세요. 이미 발생했다면 카드를 다시 연결하고 '파일 > 라이브러리로 미디어 통합'을 실행하세요.",
+      "keywords": ["SD카드", "오프라인", "가져오기", "제자리", "미디어 누락"]
+    },
+    {
+      "id": "fcp-update-library-upgrade",
+      "title": "업데이트 후 라이브러리가 구버전 FCP에서 열리지 않음",
+      "status": "open",
+      "affects": "모든 메이저 업데이트",
+      "desc": "새 버전에서 라이브러리를 열면 업그레이드되며, 이후 구버전에서는 열 수 없습니다. 팀 작업에서 버전이 섞이면 문제가 됩니다.",
+      "workaround": "업데이트 전 라이브러리를 복제해 두세요. 팀 전체가 같은 FCP 버전을 쓰도록 맞추고, 납품 중인 프로젝트는 업데이트를 보류하는 것이 안전합니다.",
+      "keywords": ["업데이트", "라이브러리", "호환", "구버전", "열리지 않음"]
+    }
+  ]
+}
