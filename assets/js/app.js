@@ -24,8 +24,42 @@ function stripHtml(html) {
 }
 
 /* ---------------- 검색 엔진 (간단 토큰 점수) ---------------- */
+// 질문에서 의미 없는 말(의문사, 요청 표현)은 매칭에서 제외
+const STOPWORDS = new Set([
+  "어떻게", "어떡해", "어떻해", "무엇", "뭐", "뭔가요", "왜", "어디", "어디서", "언제",
+  "방법", "하는법", "하는", "하기", "할", "해요", "하나요", "합니까", "할까요", "하죠",
+  "싶어요", "싶은데", "싶습니다", "알려줘", "알려주세요", "궁금해요", "궁금합니다",
+  "좀", "제발", "그리고", "그런데", "근데", "혹시", "있나요", "인가요", "때",
+  "파이널컷", "파컷", "fcp", "final", "cut", "pro", "에서",
+  "how", "to", "do", "does", "i", "my", "the", "a", "an", "in", "on", "is", "it", "can", "what", "why"
+]);
+// 단어 끝의 한국어 조사/어미 제거 (간단 휴리스틱)
+const PARTICLES = [
+  "하나요", "할까요", "인가요", "습니까", "합니다", "에서는", "이라고", "까지", "부터",
+  "처럼", "마다", "에서", "으로", "해요", "은", "는", "이", "가", "을", "를", "에", "의", "도", "로", "와", "과", "요"
+];
+
+function stripParticle(t) {
+  for (const p of PARTICLES) {
+    if (t.length - p.length >= 2 && t.endsWith(p)) return t.slice(0, t.length - p.length);
+  }
+  return t;
+}
+
 function tokenize(q) {
-  return q.toLowerCase().split(/[\s,./?!'"()]+/).filter((t) => t.length >= 1);
+  return q.toLowerCase()
+    .split(/[\s,./?!'"()~…]+/)
+    .filter(Boolean)
+    .map(stripParticle)
+    .filter((t) => t.length >= 1 && !STOPWORDS.has(t));
+}
+
+// 토큰이 텍스트에 없으면 어미 변형을 고려해 끝을 줄여 가며 재시도
+function tokenMatch(text, tok) {
+  if (text.includes(tok)) return 1;
+  if (tok.length >= 3 && text.includes(tok.slice(0, -1))) return 0.8;
+  if (tok.length >= 4 && text.includes(tok.slice(0, -2))) return 0.6;
+  return 0;
 }
 
 function scoreItem(tokens, fields) {
@@ -34,8 +68,8 @@ function scoreItem(tokens, fields) {
   for (const tok of tokens) {
     for (const f of fields) {
       if (!f.text) continue;
-      const t = f.text.toLowerCase();
-      if (t.includes(tok)) score += f.weight * (tok.length >= 2 ? 1 : 0.3);
+      const m = tokenMatch(f.text.toLowerCase(), tok);
+      if (m) score += f.weight * m * (tok.length >= 2 ? 1 : 0.3);
     }
   }
   return score;
