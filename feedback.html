@@ -50,6 +50,12 @@
     <label for="fb-detail" data-i18n="feedback.detail"></label>
     <textarea id="fb-detail" required></textarea>
 
+    <!-- 허니팟(스팸 방지): 사람에게는 보이지 않는 필드 -->
+    <input id="fb-website" type="text" name="website" tabindex="-1" autocomplete="off"
+           style="position:absolute;left:-9999px;height:0;width:0;border:0;padding:0" aria-hidden="true">
+
+    <div id="fb-status" class="note" style="display:none" role="status"></div>
+
     <button class="btn" type="submit" data-i18n="feedback.submit"></button>
     <p style="color:var(--text-soft);font-size:13.5px" data-i18n="feedback.how"></p>
   </form>

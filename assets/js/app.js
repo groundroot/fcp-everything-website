@@ -393,28 +393,76 @@ function initAsk() {
 }
 
 /* ---------------- 피드백 ---------------- */
+function feedbackValues() {
+  return {
+    type: document.getElementById("fb-type").value,
+    fcpVersion: document.getElementById("fb-fcpver").value.trim(),
+    macVersion: document.getElementById("fb-macver").value.trim(),
+    summary: document.getElementById("fb-summary").value.trim(),
+    detail: document.getElementById("fb-detail").value.trim(),
+    website: document.getElementById("fb-website")?.value || "", // 허니팟
+    lang: I18N.lang
+  };
+}
+
+// 워커 미설정 시 폴백: GitHub 이슈 작성 화면을 미리 채워서 연다
+function openGithubPrefill(fb) {
+  const labels = { bug: "bug,fcp-report", feature: "enhancement,fcp-report", site: "site-feedback" }[fb.type];
+  const prefix = { bug: "[Bug]", feature: "[Feature Request]", site: "[Site]" }[fb.type];
+  const body = [
+    fb.type !== "site" ? `**Final Cut Pro:** ${fb.fcpVersion || "-"}` : "",
+    fb.type !== "site" ? `**macOS / Hardware:** ${fb.macVersion || "-"}` : "",
+    "", fb.detail,
+    "", "---", "_Submitted via the fcpe.com feedback page. Bug reports are relayed to Apple Feedback._"
+  ].filter((l) => l !== undefined).join("\n");
+  const url = `https://github.com/${CONFIG.GITHUB_REPO}/issues/new` +
+    `?title=${encodeURIComponent(prefix + " " + fb.summary)}` +
+    `&labels=${encodeURIComponent(labels)}` +
+    `&body=${encodeURIComponent(body)}`;
+  window.open(url, "_blank", "noopener");
+}
+
+function setFeedbackStatus(kind, html) {
+  const el = document.getElementById("fb-status");
+  el.className = "note" + (kind === "error" ? " error" : "");
+  el.style.display = "block";
+  el.innerHTML = html;
+}
+
 function initFeedback() {
   const form = document.getElementById("feedback-form");
-  form.addEventListener("submit", (e) => {
+  const btn = form.querySelector("button[type=submit]");
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const type = document.getElementById("fb-type").value;
-    const fcpver = document.getElementById("fb-fcpver").value.trim();
-    const macver = document.getElementById("fb-macver").value.trim();
-    const summary = document.getElementById("fb-summary").value.trim();
-    const detail = document.getElementById("fb-detail").value.trim();
-    const labels = { bug: "bug,fcp-report", feature: "enhancement,fcp-report", site: "site-feedback" }[type];
-    const prefix = { bug: "[버그]", feature: "[제안]", site: "[사이트]" }[type];
-    const body = [
-      type !== "site" ? `**Final Cut Pro 버전:** ${fcpver || "-"}` : "",
-      type !== "site" ? `**macOS / 기기:** ${macver || "-"}` : "",
-      "", "### 내용", detail,
-      "", "---", "_fcpe.com 피드백 페이지에서 등록됨. 버그 리포트는 정리 후 Apple Feedback으로 전달됩니다._"
-    ].filter((l) => l !== undefined).join("\n");
-    const url = `https://github.com/${CONFIG.GITHUB_REPO}/issues/new` +
-      `?title=${encodeURIComponent(prefix + " " + summary)}` +
-      `&labels=${encodeURIComponent(labels)}` +
-      `&body=${encodeURIComponent(body)}`;
-    window.open(url, "_blank", "noopener");
+    const fb = feedbackValues();
+
+    if (!CONFIG.FEEDBACK_API_ENDPOINT) {
+      openGithubPrefill(fb);
+      return;
+    }
+
+    btn.disabled = true;
+    setFeedbackStatus("info", I18N.t("feedback.sending"));
+    try {
+      const res = await fetch(CONFIG.FEEDBACK_API_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(fb)
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.ok) {
+        setFeedbackStatus("info",
+          `${I18N.t("feedback.success")}` +
+          (data.url ? ` <a href="${esc(data.url)}" target="_blank" rel="noopener">#${esc(String(data.number ?? ""))} ↗</a>` : ""));
+        form.reset();
+      } else {
+        setFeedbackStatus("error", I18N.t("feedback.error"));
+      }
+    } catch {
+      setFeedbackStatus("error", I18N.t("feedback.error"));
+    } finally {
+      btn.disabled = false;
+    }
   });
 }
 

@@ -42,14 +42,14 @@ assets/             CSS / JS
 /Users/chrictvictory/코딩/파이널컷 PPT 제작/final_cut_pro_12_3_full_guide_source
 ```
 
-이 저장소를 클론한 뒤, Mac에서 아래 명령을 실행하면 소스 폴더의 `.md` / `.html` / `.txt` 문서들을 읽어 `data/guide.json`을 생성/갱신합니다:
+이 저장소를 클론한 뒤, Mac에서 아래 명령을 실행하면 소스 폴더의 `.md` / `.html` / `.txt` 문서들을 읽어 `data/guide.json`을 생성/갱신합니다. **소스 폴더의 이미지도 함께 복사되어** (`assets/guide-img/`) 가이드와 질문 답변에 그대로 표시됩니다:
 
 ```bash
 node scripts/ingest-guide.mjs "/Users/chrictvictory/코딩/파이널컷 PPT 제작/final_cut_pro_12_3_full_guide_source"
-git add data/guide.json && git commit -m "설명서 콘텐츠 갱신" && git push
+git add data/guide.json assets/guide-img && git commit -m "설명서 콘텐츠 갱신" && git push
 ```
 
-현재 `data/guide.json`에는 대표 주제들로 만든 시드 콘텐츠가 들어 있으며, 위 명령을 실행하면 실제 12.3 설명서 전체로 교체됩니다.
+현재 `data/guide.json`에는 대표 주제들로 만든 시드 콘텐츠(개념 다이어그램 포함)가 들어 있으며, 위 명령을 실행하면 실제 12.3 설명서 전체로 교체됩니다.
 
 ## 콘텐츠 추가하는 법
 
@@ -60,10 +60,27 @@ git add data/guide.json && git commit -m "설명서 콘텐츠 갱신" && git pus
 
 ## 피드백 → Apple 전달 흐름
 
-사이트의 피드백 페이지에서 작성한 내용은 이 저장소의 GitHub 이슈로 등록됩니다
-(`.github/ISSUE_TEMPLATE/` 양식 사용). 한국 사용자를 비롯해 많은 사람들이 Apple에
-직접 리포트하지 않는 점에 착안하여, 여기 모인 이슈를 정리해
-[Apple Feedback](https://www.apple.com/feedback/finalcutpro/)으로 전달합니다.
+사이트의 피드백 페이지에서 작성한 내용은 이 저장소의 GitHub 이슈로 등록됩니다.
+한국 사용자를 비롯해 많은 사람들이 Apple에 직접 리포트하지 않는 점에 착안하여,
+여기 모인 이슈를 정리해 [Apple Feedback](https://www.apple.com/feedback/finalcutpro/)으로 전달합니다.
+
+**유저는 GitHub 계정이 필요 없습니다.** `worker/feedback-worker.js`(Cloudflare Worker)를
+배포하면, 폼 제출이 워커로 전송되어 ① Claude API가 내용을 **영어로 의역·정리**하고
+(원문은 이슈 하단에 접혀서 보존) ② **fcpe 계정**의 토큰으로 이슈가 자동 등록됩니다.
+
+워커 배포 (약 5분, 무료 티어로 충분):
+
+1. [Cloudflare](https://dash.cloudflare.com) → Workers & Pages → Create Worker →
+   `worker/feedback-worker.js` 내용 붙여넣기 → Deploy
+2. Worker의 Settings → Variables and Secrets에 등록:
+   - `GITHUB_TOKEN` (Secret) — fcpe 계정의 Fine-grained PAT (이 저장소, Issues: Read and write만)
+   - `GITHUB_REPO` — `groundroot/fcp-everything-website`
+   - `ANTHROPIC_API_KEY` (Secret) — Claude API 키 (없으면 번역 없이 원문으로 등록)
+   - `ALLOWED_ORIGIN` — `https://fcpe.com`
+3. 워커 URL을 `assets/js/config.js`의 `FEEDBACK_API_ENDPOINT`에 넣고 푸시
+
+워커를 설정하지 않으면 예전 방식(GitHub 이슈 작성 화면을 미리 채워서 열기)으로 동작합니다.
+스팸은 허니팟 필드로 1차 차단됩니다.
 
 ## AI 에이전트 연동 (선택)
 

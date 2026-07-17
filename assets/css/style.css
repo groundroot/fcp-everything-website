@@ -177,6 +177,26 @@ article.guide-body .kbd {
   border-radius: 6px; padding: 0 6px; font-size: .85em; font-family: inherit;
 }
 
+/* ---------- 본문 이미지 · 다이어그램 (가이드/답변 공용) ---------- */
+.guide-body img, .msg.bot img, .item img {
+  max-width: 100%; height: auto; display: block;
+  border-radius: 10px; border: 1px solid var(--line); margin: 10px 0;
+}
+figure.diagram {
+  margin: 12px 0; padding: 14px 16px 10px;
+  background: var(--bg-soft); border: 1px solid var(--line); border-radius: 12px;
+}
+figure.diagram svg { width: 100%; height: auto; display: block; }
+figure.diagram figcaption {
+  margin-top: 8px; font-size: 12.5px; color: var(--text-soft); text-align: center;
+}
+.dg-box { fill: var(--card); stroke: var(--line); rx: 8; }
+.dg-box.accent { stroke: var(--accent); }
+.dg-text { fill: var(--text); font-size: 13px; font-family: inherit; }
+.dg-text.soft { fill: var(--text-soft); font-size: 11.5px; }
+.dg-arrow { stroke: var(--text-soft); stroke-width: 1.5; fill: none; marker-end: url(#dg-head); }
+.dg-clip { fill: var(--accent-soft); stroke: var(--accent); rx: 6; }
+
 /* ---------- ask (agent) ---------- */
 .chat { max-width: 720px; margin: 0 auto; }
 .chat-log { display: flex; flex-direction: column; gap: 14px; margin-bottom: 18px; }
@@ -227,6 +247,8 @@ form.feedback textarea { min-height: 140px; resize: vertical; }
   background: var(--accent-soft); color: var(--accent-text);
   border-radius: 10px; padding: 10px 14px; font-size: 13.5px; margin: 14px 0;
 }
+.note.error { background: #fdecea; color: var(--bad); }
+@media (prefers-color-scheme: dark) { .note.error { background: #3a1f1c; } }
 
 /* ---------- footer ---------- */
 footer.site {

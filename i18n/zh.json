@@ -57,7 +57,7 @@
   "community.title": "社区",
   "community.lead": "不要独自苦恼。与全球 Final Cut Pro 用户实时交流。",
   "feedback.title": "反馈",
-  "feedback.lead": "报告 Bug、提出功能建议。内容会登记为 GitHub Issue,我们整理后转达 Apple。",
+  "feedback.lead": "报告 Bug、提出功能建议。无需 GitHub 账号——内容会被整理成清晰的英文登记为 Issue,并转达 Apple。",
   "feedback.note": "很多用户从不向 Apple 报告 Bug,导致问题被搁置。请在这里留下反馈,我们会汇总转达。",
   "feedback.type": "类型",
   "feedback.type.bug": "🐞 Bug 报告",
@@ -68,11 +68,14 @@
   "feedback.summary": "一句话概括",
   "feedback.detail": "详细内容(复现步骤、期望行为等)",
   "feedback.submit": "提交为 GitHub Issue",
-  "feedback.how": "点击按钮会打开预填好的 GitHub Issue 页面。没有 GitHub 账号?也可以在社区留言。",
+  "feedback.how": "提交后,内容会被意译整理成清晰的英文,并以 fcpe 账号登记为 GitHub Issue。无需 GitHub 账号。",
   "footer.tagline": "汇集全球 Final Cut Pro 用户的知识与经验。",
   "footer.disclaimer": "Apple 和 Final Cut Pro 是 Apple Inc. 的商标。本站是与 Apple 无关的独立社区项目。",
   "search.results": "搜索结果",
   "search.none": "没有结果",
   "common.source": "来源",
-  "common.readmore": "详情"
+  "common.readmore": "详情",
+  "feedback.sending": "提交中…",
+  "feedback.success": "已收到,感谢反馈!已登记为:",
+  "feedback.error": "提交失败。请稍后重试,或在社区留言。"
 }

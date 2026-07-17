@@ -57,7 +57,7 @@
   "community.title": "커뮤니티",
   "community.lead": "혼자 고민하지 마세요. 전 세계 Final Cut Pro 사용자들과 실시간으로 이야기할 수 있습니다.",
   "feedback.title": "피드백",
-  "feedback.lead": "버그 제보와 기능 제안을 남겨 주세요. GitHub 이슈로 등록되며, 정리해서 Apple에 전달합니다.",
+  "feedback.lead": "버그 제보와 기능 제안을 남겨 주세요. GitHub 계정 없이 제출할 수 있고, 내용은 영어로 정리되어 이슈로 등록된 뒤 Apple에 전달됩니다.",
   "feedback.note": "한국을 비롯해 많은 사용자들이 Apple에 직접 리포트하지 않아 버그가 방치됩니다. 여기 남겨 주시면 저희가 모아서 전달합니다.",
   "feedback.type": "종류",
   "feedback.type.bug": "🐞 버그 제보",
@@ -68,11 +68,14 @@
   "feedback.summary": "한 줄 요약",
   "feedback.detail": "자세한 내용 (재현 방법, 기대한 동작 등)",
   "feedback.submit": "GitHub 이슈로 등록하기",
-  "feedback.how": "버튼을 누르면 GitHub 이슈 작성 화면이 열립니다. GitHub 계정이 없다면 커뮤니티(카톡방)에 남겨 주셔도 됩니다.",
+  "feedback.how": "제출하면 내용이 영어로 의역·정리되어 fcpe 계정으로 GitHub 이슈에 등록됩니다. GitHub 계정이 없어도 됩니다.",
   "footer.tagline": "전 세계 Final Cut Pro 사용자들의 정보를 모아 제공합니다.",
   "footer.disclaimer": "Apple 및 Final Cut Pro는 Apple Inc.의 상표입니다. 이 사이트는 Apple과 무관한 커뮤니티 프로젝트입니다.",
   "search.results": "검색 결과",
   "search.none": "검색 결과가 없습니다",
   "common.source": "출처",
-  "common.readmore": "자세히"
+  "common.readmore": "자세히",
+  "feedback.sending": "등록 중입니다…",
+  "feedback.success": "접수되었습니다! 소중한 제보 감사합니다. 등록된 이슈:",
+  "feedback.error": "등록에 실패했어요. 잠시 후 다시 시도하시거나 커뮤니티(카톡방)에 남겨 주세요."
 }

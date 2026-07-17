@@ -57,7 +57,7 @@
   "community.title": "Community",
   "community.lead": "Don't struggle alone. Talk to Final Cut Pro users around the world in real time.",
   "feedback.title": "Feedback",
-  "feedback.lead": "Report bugs and suggest features. Submissions become GitHub issues, and we relay them to Apple.",
+  "feedback.lead": "Report bugs and suggest features. No GitHub account needed — submissions are written up in clear English, filed as issues, and relayed to Apple.",
   "feedback.note": "Many users never report bugs to Apple, so they go unfixed. Leave them here and we'll collect and relay them.",
   "feedback.type": "Type",
   "feedback.type.bug": "🐞 Bug report",
@@ -68,11 +68,14 @@
   "feedback.summary": "One-line summary",
   "feedback.detail": "Details (steps to reproduce, expected behavior…)",
   "feedback.submit": "Submit as GitHub issue",
-  "feedback.how": "The button opens a pre-filled GitHub issue form. No GitHub account? Post in the community instead.",
+  "feedback.how": "Your submission is paraphrased into clear English and filed as a GitHub issue under the fcpe account. No GitHub account required.",
   "footer.tagline": "Collecting knowledge from Final Cut Pro users worldwide.",
   "footer.disclaimer": "Apple and Final Cut Pro are trademarks of Apple Inc. This is an independent community project, not affiliated with Apple.",
   "search.results": "Results",
   "search.none": "No results",
   "common.source": "Source",
-  "common.readmore": "Read more"
+  "common.readmore": "Read more",
+  "feedback.sending": "Submitting…",
+  "feedback.success": "Received — thank you! Filed as:",
+  "feedback.error": "Submission failed. Please try again later, or post in the community."
 }

@@ -57,7 +57,7 @@
   "community.title": "コミュニティ",
   "community.lead": "ひとりで悩まないでください。世界中の Final Cut Pro ユーザとリアルタイムで話せます。",
   "feedback.title": "フィードバック",
-  "feedback.lead": "バグ報告や機能提案をお寄せください。GitHub Issue として登録され、Apple に届けます。",
+  "feedback.lead": "バグ報告や機能提案をお寄せください。GitHub アカウントは不要 — 内容は英語に整理されて Issue として登録され、Apple に届けられます。",
   "feedback.note": "多くのユーザは Apple に直接報告しないため、バグが放置されがちです。ここに残していただければ、まとめて届けます。",
   "feedback.type": "種類",
   "feedback.type.bug": "🐞 バグ報告",
@@ -68,11 +68,14 @@
   "feedback.summary": "一行要約",
   "feedback.detail": "詳細 (再現手順、期待する動作など)",
   "feedback.submit": "GitHub Issue として送信",
-  "feedback.how": "ボタンを押すと GitHub の Issue 作成画面が開きます。GitHub アカウントがない場合はコミュニティに投稿してください。",
+  "feedback.how": "送信すると内容が分かりやすい英語に意訳・整理され、fcpe アカウントで GitHub Issue として登録されます。GitHub アカウントは不要です。",
   "footer.tagline": "世界中の Final Cut Pro ユーザの知見を集めて提供します。",
   "footer.disclaimer": "Apple および Final Cut Pro は Apple Inc. の商標です。本サイトは Apple とは無関係のコミュニティプロジェクトです。",
   "search.results": "検索結果",
   "search.none": "結果がありません",
   "common.source": "出典",
-  "common.readmore": "詳細"
+  "common.readmore": "詳細",
+  "feedback.sending": "送信中…",
+  "feedback.success": "受け付けました。ご報告ありがとうございます! 登録された Issue:",
+  "feedback.error": "送信に失敗しました。しばらくしてから再度お試しください。"
 }
