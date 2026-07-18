@@ -2,8 +2,11 @@
 /**
  * 파이널컷 사용 설명서 소스 → data/guide.json 변환기 (이미지 포함)
  *
- * 사용법 (소스가 있는 Mac에서):
- *   node scripts/ingest-guide.mjs "/Users/chrictvictory/코딩/파이널컷 PPT 제작/final_cut_pro_12_3_full_guide_source"
+ * 설명서 소스 경로는 아래 DEFAULT_SRC 에 고정되어 있습니다.
+ * 따라서 소스가 있는 Mac에서 인자 없이 그냥 실행하면 됩니다:
+ *   node scripts/ingest-guide.mjs
+ * (다른 경로를 쓰려면 인자로 덮어쓸 수 있습니다:
+ *   node scripts/ingest-guide.mjs "/다른/경로")
  *
  * - 소스 폴더의 .md / .html / .htm / .txt 문서를 재귀적으로 읽어
  *   사이트가 사용하는 data/guide.json 형식으로 변환합니다.
@@ -12,13 +15,22 @@
  *   → 질문 답변과 가이드에 설명서 이미지가 그대로 표시됩니다.
  * - 하위 폴더 이름이 챕터가 됩니다 (없으면 "manual" 챕터).
  */
-import { readdir, readFile, writeFile, mkdir, copyFile } from "node:fs/promises";
+import { readdir, readFile, writeFile, mkdir, copyFile, access } from "node:fs/promises";
 import { join, extname, basename, relative, dirname, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const SRC = process.argv[2];
-if (!SRC) {
-  console.error('사용법: node scripts/ingest-guide.mjs "<설명서 소스 폴더 경로>"');
+// ⬇ 설명서 소스 위치 고정. 이 경로에서 사진과 내용을 가져와 질문에 답합니다.
+const DEFAULT_SRC = "/Users/chrictvictory/코딩/파이널컷 PPT 제작/final_cut_pro_12_3_full_guide_source";
+
+const SRC = process.argv[2] || DEFAULT_SRC;
+
+try {
+  await access(SRC);
+} catch {
+  console.error(`설명서 소스 폴더를 찾을 수 없습니다:\n  ${SRC}\n`);
+  console.error("이 스크립트는 설명서 소스가 있는 Mac에서 실행해야 합니다.");
+  console.error("경로가 바뀌었다면 scripts/ingest-guide.mjs 상단의 DEFAULT_SRC 를 수정하거나,");
+  console.error('인자로 넘겨 주세요:  node scripts/ingest-guide.mjs "<소스 경로>"');
   process.exit(1);
 }
 

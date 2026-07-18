@@ -36,20 +36,30 @@ assets/             CSS / JS
 
 ## 설명서 소스 넣기 (중요)
 
-설명서 원본 소스는 로컬 Mac의 아래 경로에 있습니다:
+설명서 원본 소스 경로는 스크립트에 **고정**되어 있습니다
+(`scripts/ingest-guide.mjs` 상단의 `DEFAULT_SRC`):
 
 ```
 /Users/chrictvictory/코딩/파이널컷 PPT 제작/final_cut_pro_12_3_full_guide_source
 ```
 
-이 저장소를 클론한 뒤, Mac에서 아래 명령을 실행하면 소스 폴더의 `.md` / `.html` / `.txt` 문서들을 읽어 `data/guide.json`을 생성/갱신합니다. **소스 폴더의 이미지도 함께 복사되어** (`assets/guide-img/`) 가이드와 질문 답변에 그대로 표시됩니다:
+이 저장소를 클론한 뒤, **소스가 있는 Mac에서** 인자 없이 아래 한 줄만 실행하면
+그 경로의 `.md` / `.html` / `.txt` 문서를 읽어 `data/guide.json`을 생성/갱신하고,
+소스 폴더의 이미지도 `assets/guide-img/`로 함께 복사해 **가이드와 질문 답변에
+설명서의 사진과 내용이 그대로 표시**되게 합니다:
 
 ```bash
-node scripts/ingest-guide.mjs "/Users/chrictvictory/코딩/파이널컷 PPT 제작/final_cut_pro_12_3_full_guide_source"
+npm run ingest        # = node scripts/ingest-guide.mjs (고정 경로 사용)
 git add data/guide.json assets/guide-img && git commit -m "설명서 콘텐츠 갱신" && git push
 ```
 
-현재 `data/guide.json`에는 대표 주제들로 만든 시드 콘텐츠(개념 다이어그램 포함)가 들어 있으며, 위 명령을 실행하면 실제 12.3 설명서 전체로 교체됩니다.
+경로가 바뀌면 `DEFAULT_SRC`를 고치거나 인자로 넘기면 됩니다:
+`node scripts/ingest-guide.mjs "<다른 경로>"`. 소스 폴더를 못 찾으면 스크립트가
+안내 메시지와 함께 안전하게 종료됩니다(기존 `guide.json`은 그대로 유지).
+
+현재 `data/guide.json`에는 대표 주제들로 만든 시드 콘텐츠(개념 다이어그램 포함)가
+들어 있으며, 위 명령을 실행하면 실제 12.3 설명서 전체로 교체됩니다. 이후 질문하기는
+설명서 문단과 이미지를 근거로 답하고, 답변 하단에 출처 섹션 링크를 함께 보여 줍니다.
 
 ## 콘텐츠 추가하는 법
 
